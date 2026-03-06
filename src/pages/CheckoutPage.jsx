@@ -1,5 +1,5 @@
 import "./CheckoutPage.css";
-import "./header.css";
+// import "./header.css";
 import "./checkout-header.css";
 import mobileLogo from "../assets/images/mobile-logo.png";
 import logo from "../assets/images/logo.png";
