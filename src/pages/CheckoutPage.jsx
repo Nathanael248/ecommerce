@@ -1,38 +1,15 @@
 import "./CheckoutPage.css";
-// import "./header.css";
+import { Header } from "../components/Header";
 import "./checkout-header.css";
-import mobileLogo from "../assets/images/mobile-logo.png";
-import logo from "../assets/images/logo.png";
+
 import athleteCotton from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg";
 import basketBall from "../assets/images/products/intermediate-composite-basketball.jpg";
-import checkoutLock from "../assets/images/icons/checkout-lock-icon.png";
 
 export function CheckoutPage() {
   return (
     <>
       <title>Checkout</title>
-      <div className="checkout-header">
-        <div className="header-content">
-          <div className="checkout-header-left-section">
-            <a href="/">
-              <img className="logo" src={logo} />
-              <img className="mobile-logo" src={mobileLogo} />
-            </a>
-          </div>
-
-          <div className="checkout-header-middle-section">
-            Checkout (
-            <a className="return-to-home-link" href="/">
-              3 items
-            </a>
-            )
-          </div>
-
-          <div className="checkout-header-right-section">
-            <img src={checkoutLock} />
-          </div>
-        </div>
-      </div>
+      <Header />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
