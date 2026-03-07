@@ -1,18 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { products } from "../starting-code/data/products";
 import "./HomePage.css";
 import { Header } from "../components/Header";
 
-// import checkmarkIcon from "images/icons/checkmark.png";
-// import socksImg from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg";
-// import basketballImg from "../assets/images/products/intermediate-composite-basketball.jpg";
-// import tshirtImg from "../assets/images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg";
-// import rating45 from "../assets/images/ratings/rating-45.png";
-// import rating40 from "../assets/images/ratings/rating-40.png";
-
 export function HomePage() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/products").then((response) => {
@@ -20,9 +13,15 @@ export function HomePage() {
     });
   }, []);
 
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/cart-items").then((response) => {
+      setCart(response.data);
+    });
+  }, []);
+
   return (
     <>
-      <Header />
+      <Header cart={cart} />
 
       <div className="home-page">
         <div className="products-grid">
