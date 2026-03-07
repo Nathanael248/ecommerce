@@ -1,4 +1,6 @@
-import { products } from "../starting-code/data/products";
+import axios from "axios";
+import { useEffect, useState } from "react";
+// import { products } from "../starting-code/data/products";
 import "./HomePage.css";
 import { Header } from "../components/Header";
 
@@ -10,6 +12,14 @@ import { Header } from "../components/Header";
 // import rating40 from "../assets/images/ratings/rating-40.png";
 
 export function HomePage() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/products").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
+
   return (
     <>
       <Header />
