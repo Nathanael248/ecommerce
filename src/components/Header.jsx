@@ -1,9 +1,6 @@
 import { Link } from "react-router";
 import "./header.css";
-import logoWhite from "../assets/images/logo-white.png";
-import mobileLogoWhite from "../assets/images/mobile-logo-white.png";
-import searchIcon from "../assets/images/icons/search-icon.png";
-import cartIcon from "../assets/images/icons/cart-icon.png";
+// images are served from public folder; reference with absolute paths
 
 // Components folder is used to group shared data
 
@@ -13,8 +10,8 @@ export function Header() {
       <div className="header">
         <div className="left-section">
           <Link to="/" className="header-link">
-            <img className="logo" src={logoWhite} />
-            <img className="mobile-logo" src={mobileLogoWhite} />
+            <img className="logo" src="images/logo-white.png" />
+            <img className="mobile-logo" src="images/mobile-logo-white.png" />
           </Link>
         </div>
 
@@ -22,7 +19,7 @@ export function Header() {
           <input className="search-bar" type="text" placeholder="Search" />
 
           <button className="search-button">
-            <img className="search-icon" src={searchIcon} />
+            <img className="search-icon" src="/images/icons/search-icon.png" />
           </button>
         </div>
 
@@ -32,7 +29,7 @@ export function Header() {
           </Link>
 
           <Link className="cart-link header-link" to="/checkout">
-            <img className="cart-icon" src={cartIcon} />
+            <img className="cart-icon" src="/images/icons/cart-icon.png" />
             <div className="cart-quantity">3</div>
             <div className="cart-text">Cart</div>
           </Link>

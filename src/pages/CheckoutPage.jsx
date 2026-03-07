@@ -2,8 +2,7 @@ import "./CheckoutPage.css";
 import { Header } from "../components/Header";
 import "./checkout-header.css";
 
-import athleteCotton from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg";
-import basketBall from "../assets/images/products/intermediate-composite-basketball.jpg";
+// product images are served from public folder
 
 export function CheckoutPage() {
   return (
@@ -22,7 +21,10 @@ export function CheckoutPage() {
               </div>
 
               <div className="cart-item-details-grid">
-                <img className="product-image" src={athleteCotton} />
+                <img
+                  className="product-image"
+                  src="/images/products/athletic-cotton-socks-6-pairs.jpg"
+                />
 
                 <div className="cart-item-details">
                   <div className="product-name">
@@ -100,7 +102,10 @@ export function CheckoutPage() {
               </div>
 
               <div className="cart-item-details-grid">
-                <img className="product-image" src={basketBall} />
+                <img
+                  className="product-image"
+                  src="/images/products/intermediate-composite-basketball.jpg"
+                />
 
                 <div className="cart-item-details">
                   <div className="product-name">

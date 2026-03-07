@@ -1,9 +1,8 @@
 import { Link } from "react-router";
-import logoWhite from "../assets/images/logo-white.png";
-import searchIcon from "../assets/images/icons/search-icon.png";
+// images are served from public folder
+// import searchIcon from "/images/icons/search-icon.png";
 import "./TrackingPage.css";
-import cartIcon from "../assets/images/icons/cart-icon.png";
-import socksImg from "../assets/images/products/athletic-cotton-socks-6-pairs.jpg";
+// import cartIcon from "/images/icons/cart-icon.png";
 
 export function TrackingPage() {
   return (
@@ -11,8 +10,8 @@ export function TrackingPage() {
       <div className="header">
         <div className="left-section">
           <Link to="/" className="header-link">
-            <img className="logo" src="images/logo-white.png" />
-            <img className="mobile-logo" src={logoWhite} />
+            <img className="logo" src="/images/logo-white.png" />
+            <img className="mobile-logo" src="/images/mobile-logo-white.png" />
           </Link>
         </div>
 
@@ -20,7 +19,7 @@ export function TrackingPage() {
           <input className="search-bar" type="text" placeholder="Search" />
 
           <button className="search-button">
-            <img className="search-icon" src={searchIcon} />
+            <img className="search-icon" src="/images/icons/search-icon.png" />
           </button>
         </div>
 
@@ -30,7 +29,7 @@ export function TrackingPage() {
           </Link>
 
           <Link className="cart-link header-link" to="/checkout">
-            <img className="cart-icon" src={cartIcon} />
+            <img className="cart-icon" src="/images/icons/cart-icon.png" />
             <div className="cart-quantity">3</div>
             <div className="cart-text">Cart</div>
           </Link>
@@ -51,7 +50,10 @@ export function TrackingPage() {
 
           <div className="product-info">Quantity: 1</div>
 
-          <img className="product-image" src={socksImg} />
+          <img
+            className="product-image"
+            src="/images/products/athletic-cotton-socks-6-pairs.jpg"
+          />
 
           <div className="progress-labels-container">
             <div className="progress-label">Preparing</div>
