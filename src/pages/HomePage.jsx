@@ -4,19 +4,12 @@ import "./HomePage.css";
 import { formatMoney } from "../utils/money";
 import { Header } from "../components/Header";
 
-export function HomePage() {
+export function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios.get("/api/products").then((response) => {
       setProducts(response.data);
-    });
-  }, []);
-
-  useEffect(() => {
-    axios.get("/api/cart-items").then((response) => {
-      setCart(response.data);
     });
   }, []);
 
@@ -42,7 +35,9 @@ export function HomePage() {
                     className="product-rating-stars"
                     src={`images/ratings/rating-${product.rating.stars * 10}.png`}
                   />
-                  <div className={product.rating.count}>87</div>
+                  <div className="product-rating-count">
+                    {product.rating.count}
+                  </div>
                 </div>
 
                 <div className="product-price">
