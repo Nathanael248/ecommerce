@@ -11,10 +11,16 @@ import { OrderProducts } from "./OrderProducts";
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((response) => {
-      console.log(response.data);
+    const loadOrders = async () => {
+      const response = await axios.get("/api/orders?expand=products");
       setOrders(response.data);
-    });
+    };
+
+    loadOrders();
+    // axios.get("/api/orders?expand=products").then((response) => {
+    //   console.log(response.data);
+    //   setOrders(response.data);
+    // });
   }, []);
 
   return (

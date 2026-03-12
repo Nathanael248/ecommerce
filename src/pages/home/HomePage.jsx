@@ -9,9 +9,14 @@ export function HomePage({ cart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/products").then((response) => {
+    const loadProducts = async () => {
+      const response = await axios.get("/api/products");
       setProducts(response.data);
-    });
+    };
+    // axios.get("/api/products").then((response) => {
+    //   setProducts(response.data);
+    // });
+    loadProducts();
   }, []);
 
   return (
