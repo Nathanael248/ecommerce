@@ -68,9 +68,7 @@ export function CheckoutPage({ cart }) {
                         <div className="product-quantity">
                           <span>
                             Quantity:{cartItem.quantity}
-                            <span className="quantity-label">
-                              {cartItem.quantity}
-                            </span>
+                            <span className="quantity-label"></span>
                           </span>
                           <span className="update-quantity-link link-primary">
                             Update
