@@ -9,7 +9,7 @@ import { Header } from "../../components/Header";
 
 // product images are served from public folder
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState([]);
 
@@ -28,11 +28,11 @@ export function CheckoutPage({ cart }) {
     //   });
   }, []);
 
+  const loadPaymentSummary = async () => {
+    const response = await axios.get("/api/payment-summary");
+    setPaymentSummary(response.data);
+  };
   useEffect(() => {
-    const loadPaymentSummary = async () => {
-      const response = await axios.get("/api/payment-summary");
-      setPaymentSummary(response.data);
-    };
     // axios.get("/api/payment-summary").then((response) => {
     //   setPaymentSummary(response.data);
     // });
@@ -47,7 +47,12 @@ export function CheckoutPage({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <OrderSummary deliveryOptions={deliveryOptions} cart={cart} />
+          <OrderSummary
+            deliveryOptions={deliveryOptions}
+            cart={cart}
+            loadCart={loadCart}
+            loadPaymentSummary={loadPaymentSummary}
+          />
 
           <div className="payment-summary">
             <div className="payment-summary-title">Payment Summary</div>

@@ -1,7 +1,14 @@
 import dayjs from "dayjs";
 import { formatMoney } from "../../utils/money";
+import { DeliveryOption } from "./DeliveryOption";
+import { PaymentSummary } from "./PaymentSummary";
 
-export function OrderSummary({ deliveryOptions, cart }) {
+export function OrderSummary({
+  deliveryOptions,
+  cart,
+  loadCart,
+  loadPaymentSummary,
+}) {
   return (
     <div className="order-summary">
       {deliveryOptions.length > 0 &&
@@ -47,35 +54,12 @@ export function OrderSummary({ deliveryOptions, cart }) {
                   <div className="delivery-options-title">
                     Choose a delivery option:
                   </div>
-                  {deliveryOptions.map((deliveryOption) => {
-                    let priceString = "FREE shipping";
-
-                    if (deliveryOption.priceCents > 0) {
-                      priceString = `${formatMoney(deliveryOption.priceCents)} -Shipping`;
-                    }
-                    return (
-                      <div key={deliveryOption.id} className="delivery-option">
-                        <input
-                          type="radio"
-                          checked={
-                            deliveryOption.id === cartItem.deliveryOptionId
-                          }
-                          className="delivery-option-input"
-                          name={`delivery-option-${cartItem.productId}`}
-                        />
-                        <div>
-                          <div className="delivery-option-date">
-                            {dayjs(
-                              deliveryOption.estimatedDeliveryTimeMs,
-                            ).format("dddd MMMM D")}
-                          </div>
-                          <div className="delivery-option-price">
-                            {priceString}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  <DeliveryOption
+                    deliveryOptions={deliveryOptions}
+                    cartItem={cartItem}
+                    loadCart={loadCart}
+                    loadPaymentSummary={loadPaymentSummary}
+                  />
                 </div>
               </div>
             </div>
