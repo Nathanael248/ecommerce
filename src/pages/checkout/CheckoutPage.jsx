@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useNavigate } from "react-router";
 import { OrderSummary } from "./OrderSummary";
 import { PaymentSummary } from "./PaymentSummary";
 import { useEffect, useState } from "react";
@@ -38,6 +39,14 @@ export function CheckoutPage({ cart, loadCart }) {
     // });
     loadPaymentSummary();
   }, []);
+
+  const navigate = useNavigate();
+
+  const createOrder = async () => {
+    axios.post("/api/orders");
+    await loadCart();
+    navigate("/orders");
+  };
   return (
     <>
       <title>Checkout</title>
@@ -58,7 +67,10 @@ export function CheckoutPage({ cart, loadCart }) {
             <div className="payment-summary-title">Payment Summary</div>
             <PaymentSummary paymentSummary={paymentSummary} />
 
-            <button className="place-order-button button-primary">
+            <button
+              className="place-order-button button-primary"
+              onClick={createOrder}
+            >
               Place your order
             </button>
           </div>
